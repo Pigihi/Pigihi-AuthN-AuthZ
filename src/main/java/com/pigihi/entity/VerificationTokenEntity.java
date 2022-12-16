@@ -13,6 +13,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * Verification token entity class
+ * 
  * @author Ashish Sam T George
  *
  */
@@ -39,6 +41,13 @@ public class VerificationTokenEntity {
 		this.expiry = calculateExpirationTime(EXPIRATION_TIME);
 	}
 	
+	/**
+	 * @param expirationTime Number of minutes within which the token will expire, expressed in integer
+	 * @return Returns Date at which the token will expire
+	 * 
+	 * @author Ashish Sam T George
+	 * 
+	 */
 	private Date calculateExpirationTime(int expirationTime) {
 		
 		Calendar calendar = Calendar.getInstance();

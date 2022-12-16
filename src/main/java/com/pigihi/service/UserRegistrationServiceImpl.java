@@ -12,6 +12,8 @@ import com.pigihi.repository.UserAuthRepository;
 import com.pigihi.service.interfaces.UserRegistrationServiceInterface;
 
 /**
+ * Implementation class for {@link UserRegistrationServiceInterface}
+ * 
  * @author Ashish Sam T George
  *
  */
@@ -24,9 +26,14 @@ public class UserRegistrationServiceImpl implements UserRegistrationServiceInter
 	private UserAuthRepository userAuthRepository;
 
 	/**
+	 * Find any existing user with the given email or mobile
+	 * 
 	 * @param email Passed as a string parameter
 	 * @param mobile Passed as a string parameter
-	 * @return int Returns an integer code 
+	 * @return Returns {@link UserAuthEntity} object
+	 * 
+	 * @author Ashish Sam T George
+	 * 
 	 */
 	//TODO Only Admin should be able to call this directly.
 	@Override
@@ -37,9 +44,17 @@ public class UserRegistrationServiceImpl implements UserRegistrationServiceInter
 		return user;
 	}
 
+	/**
+	 * Save the user with the provided details
+	 * 
+	 * @param {@link UserRegistrationModel}
+	 * @return {@link UserAuthEntity}
+	 * 
+	 * @author Ashish Sam T George
+	 */
 	@Override
 	public UserAuthEntity registerUser(UserRegistrationModel userRegistrationModel) {
-		// TODO Auto-generated method stub
+
 		UserAuthEntity user = new UserAuthEntity();
 		user.setFullName(userRegistrationModel.getFullName());
 		user.setEmail(userRegistrationModel.getEmail());

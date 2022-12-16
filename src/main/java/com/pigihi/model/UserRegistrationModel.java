@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * Model class for receiving registration details from user
+ * 
  * @author Ashish Sam T George
  *
  */

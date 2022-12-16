@@ -14,6 +14,8 @@ import com.pigihi.model.UserRoleEnum;
 import lombok.Data;
 
 /**
+ * User entity class
+ * 
  * @author Ashish Sam T George
  *
  */

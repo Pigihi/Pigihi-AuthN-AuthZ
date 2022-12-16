@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * Model class for verification tokens that are to be pushed to the message broker
+ * 
  * @author Ashish Sam T George
  *
  */

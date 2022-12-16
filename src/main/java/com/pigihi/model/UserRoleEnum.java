@@ -4,6 +4,11 @@
 package com.pigihi.model;
 
 /**
+ * Enum containing the roles a user can have <br>
+ * 222 - User with role "CUSTOMER" <br>
+ * 555 - User with role "SHOP" <br>
+ * 777 - User with role "CUSTOMER_AND_SHOP" <br>
+ * 
  * @author Ashish Sam T George
  *
  */

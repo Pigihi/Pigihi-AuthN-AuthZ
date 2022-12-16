@@ -17,6 +17,8 @@ import com.pigihi.service.interfaces.VerificationServiceInterface;
 import com.pigihi.utility.MessageContentGenerator;
 
 /**
+ * Event Listener class for {@link RegistrationCompleteEvent} event
+ * 
  * @author Ashish Sam T George
  *
  */

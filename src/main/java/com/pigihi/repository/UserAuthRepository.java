@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.repository.Query;
 import com.pigihi.entity.UserAuthEntity;
 
 /**
+ * Repository class for user authentication and authorization details
+ * 
  * @author Ashish Sam T George
  *
  */

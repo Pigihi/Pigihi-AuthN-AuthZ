@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * Event class to fire when registration is complete
+ * 
  * @author Ashish Sam T George
  *
  */
