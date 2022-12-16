@@ -52,7 +52,7 @@ public class GenerateTokenServiceImpl implements GenerateTokenServiceInterface {
 	 */
 	@Override
 	public String getEmailTokenUrl(String baseUrl, String emailToken) {
-		String emailUrl = baseUrl + "/register/verifyEmail?token=" + emailToken;
+		String emailUrl = baseUrl + "/register/verify?emailToken=" + emailToken;
 		return emailUrl;
 	}
 
@@ -68,7 +68,7 @@ public class GenerateTokenServiceImpl implements GenerateTokenServiceInterface {
 	 */
 	@Override
 	public String getMobileTokenUrl(String baseUrl, String mobileToken) {
-		String mobileUrl = baseUrl + "/register/verifyMobile?token=" + mobileToken;
+		String mobileUrl = baseUrl + "/register/verify?mobileToken=" + mobileToken;
 		return mobileUrl;
 	}
 
