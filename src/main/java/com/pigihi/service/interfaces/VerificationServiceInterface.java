@@ -14,4 +14,8 @@ public interface VerificationServiceInterface {
 
 	VerificationTokenEntity saveInDB(UserAuthEntity user, String emailToken, String mobileToken);
 
+	UserAuthEntity verifyEmail(String emailToken);
+
+	UserAuthEntity saveToUserCollection(UserAuthEntity user);
+
 }
