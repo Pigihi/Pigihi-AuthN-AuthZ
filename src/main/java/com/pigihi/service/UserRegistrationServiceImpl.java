@@ -5,6 +5,7 @@ package com.pigihi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.pigihi.entity.UserAuthEntity;
 import com.pigihi.model.UserRegistrationModel;
@@ -17,6 +18,7 @@ import com.pigihi.service.interfaces.UserRegistrationServiceInterface;
  * @author Ashish Sam T George
  *
  */
+@Service
 public class UserRegistrationServiceImpl implements UserRegistrationServiceInterface {
 	
 	@Autowired

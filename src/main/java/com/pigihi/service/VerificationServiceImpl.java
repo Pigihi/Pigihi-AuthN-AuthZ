@@ -6,6 +6,7 @@ package com.pigihi.service;
 import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pigihi.entity.UserAuthEntity;
 import com.pigihi.entity.VerificationTokenEntity;
@@ -21,6 +22,7 @@ import com.pigihi.service.interfaces.VerificationServiceInterface;
  * @author Ashish Sam T George
  *
  */
+@Service
 public class VerificationServiceImpl implements VerificationServiceInterface {
 	
 	@Autowired
@@ -60,7 +62,7 @@ public class VerificationServiceImpl implements VerificationServiceInterface {
 	@Override
 	public UserAuthEntity verifyEmail(String emailToken) {
 		
-		VerificationTokenEntity verificationTokenEntity = verificationTokenRepository.findByToken(emailToken);
+		VerificationTokenEntity verificationTokenEntity = verificationTokenRepository.findByEmailToken(emailToken);
 		if(verificationTokenEntity == null) {
 			return null;
 		}

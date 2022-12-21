@@ -5,6 +5,7 @@ package com.pigihi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Service;
 
 import com.pigihi.entity.UserAuthEntity;
 import com.pigihi.event.RegistrationCompleteEvent;
@@ -19,6 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
  * @author Ashish Sam T George
  *
  */
+@Service
 public class PublishVerificationTokenServiceImpl implements PublishVerificationTokenServiceInterface {
 
 	@Autowired

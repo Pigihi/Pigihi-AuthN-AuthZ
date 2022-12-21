@@ -43,7 +43,7 @@ public class VerifyController {
 	 * 
 	 */
 	//TODO Email verification
-	@GetMapping
+	@GetMapping("email")
 	public String verifyEmail(@RequestParam("emailToken") String emailToken,
 			HttpServletResponse response) throws IOException {
 		
@@ -72,7 +72,7 @@ public class VerifyController {
 	 * 
 	 */
 	//TODO Mobile verification
-	@GetMapping
+	@GetMapping("mobile")
 	public String verifyMobile(@RequestParam("mobileToken") String mobileToken) {
 		//TODO Write logic for verifying mobile (similar to that of email)
 		return null;

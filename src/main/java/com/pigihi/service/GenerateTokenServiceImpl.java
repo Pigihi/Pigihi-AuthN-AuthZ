@@ -3,6 +3,8 @@
  */
 package com.pigihi.service;
 
+import org.springframework.stereotype.Service;
+
 import com.pigihi.service.interfaces.GenerateTokenServiceInterface;
 
 /**
@@ -11,6 +13,7 @@ import com.pigihi.service.interfaces.GenerateTokenServiceInterface;
  * @author Ashish Sam T George
  *
  */
+@Service
 public class GenerateTokenServiceImpl implements GenerateTokenServiceInterface {
 
 	/**

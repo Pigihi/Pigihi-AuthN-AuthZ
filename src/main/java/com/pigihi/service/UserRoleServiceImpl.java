@@ -4,6 +4,7 @@
 package com.pigihi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pigihi.entity.UserAuthEntity;
 import com.pigihi.model.UserRoleEnum;
@@ -16,6 +17,7 @@ import com.pigihi.service.interfaces.UserRoleServiceInterface;
  * @author Ashish Sam T George
  *
  */
+@Service
 public class UserRoleServiceImpl implements UserRoleServiceInterface {
 	
 	@Autowired

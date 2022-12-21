@@ -13,7 +13,7 @@ import com.pigihi.entity.VerificationTokenEntity;
  */
 public interface VerificationTokenRepository extends MongoRepository<VerificationTokenEntity, String> {
 
-	VerificationTokenEntity findByToken(String emailToken);
+	VerificationTokenEntity findByEmailToken(String emailToken);
 
 	
 	
