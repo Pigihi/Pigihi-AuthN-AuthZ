@@ -19,4 +19,6 @@ public interface UserAuthRepository extends MongoRepository<UserAuthEntity, Stri
 	@Query("{$or: [{email: ?0}, {mobile: ?1}]}")
 	UserAuthEntity findByEmailOrMobile(String email, String mobile);
 
+	UserAuthEntity findByEmail(String email);
+
 }
