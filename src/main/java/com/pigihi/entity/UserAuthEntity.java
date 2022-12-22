@@ -3,14 +3,10 @@
  */
 package com.pigihi.entity;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import com.pigihi.model.StatusEnum;
 import com.pigihi.model.UserRoleEnum;
@@ -38,12 +34,5 @@ public class UserAuthEntity {
 	private StatusEnum status = StatusEnum.DISABLED;
 	
 	//TODO Granted Authorities
-	public Collection<? extends GrantedAuthority> getAuthorities(List<UserRoleEnum> role){
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		for (UserRoleEnum singleRole : role) {
-			authorities.add(new SimpleGrantedAuthority(singleRole.toString()));
-		}
-		return authorities;
-	}
 
 }
