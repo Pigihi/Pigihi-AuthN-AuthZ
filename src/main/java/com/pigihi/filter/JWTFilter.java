@@ -21,6 +21,7 @@ import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.pigihi.entity.UserAuthEntity;
+import com.pigihi.utility.JWTUtility;
 
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;

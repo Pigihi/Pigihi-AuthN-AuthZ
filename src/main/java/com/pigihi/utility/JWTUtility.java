@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.pigihi.filter;
+package com.pigihi.utility;
 
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
