@@ -14,8 +14,6 @@ import com.pigihi.model.UserLoginModel;
  */
 public interface UserLoginServiceInterface {
 
-	UserAuthEntity findByEmail(String email);
-
 	Authentication login(UserLoginModel userLoginModel) throws Exception;
 
 }

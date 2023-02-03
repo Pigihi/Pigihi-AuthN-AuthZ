@@ -23,19 +23,10 @@ import com.pigihi.service.interfaces.UserLoginServiceInterface;
  */
 @Service
 public class UserLoginServiceImpl implements UserLoginServiceInterface {
-
-	@Autowired
-	private UserAuthRepository userAuthRepository;
 	
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	
-	@Override
-	public UserAuthEntity findByEmail(String email) {
-		UserAuthEntity user = userAuthRepository.findByEmail(email);
-		return user;
-	}
-
 	@Override
 	public Authentication login(UserLoginModel userLoginModel) throws Exception {
 		Authentication usernamePasswordAuthenticationToken = 
