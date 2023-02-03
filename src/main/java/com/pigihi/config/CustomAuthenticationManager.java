@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.pigihi.entity.UserAuthEntity;
+import com.pigihi.service.UserService;
 import com.pigihi.service.interfaces.UserLoginServiceInterface;
 
 /**
@@ -27,7 +28,7 @@ import com.pigihi.service.interfaces.UserLoginServiceInterface;
 public class CustomAuthenticationManager implements AuthenticationManager {
 	
 	@Autowired
-	private UserLoginServiceInterface userLoginService;
+	private UserService userService;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -36,7 +37,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException{
 		String email = authentication.getName();
 		String rawPassword = authentication.getCredentials().toString();
-		UserAuthEntity user = userLoginService.findByEmail(email);
+		UserAuthEntity user = userService.findByEmail(email);
 		String password = user.getPassword();
 		if(user != null) {
 			if(passwordEncoder.matches(rawPassword, password)) {

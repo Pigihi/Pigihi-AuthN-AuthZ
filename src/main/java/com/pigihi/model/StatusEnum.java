@@ -15,10 +15,18 @@ package com.pigihi.model;
  */
 public enum StatusEnum {
 	
-	ADMIN_DISABLED,
-	USER_DISABLED,
-	ENABLED,
-	DISABLED
+	ADMIN_DISABLED(760),
+	USER_DISABLED(761),
+	MOBILE_VERIFIED(770),
+	EMAIL_VERIFIED(771),
+	ENABLED(779),
+	DISABLED(766);
 	//TODO What about half-verification, like only email or only mobile. Also, update the javadoc after modification
+
+	public final int userStatusCode;
+	
+	StatusEnum(int userStatusCode){
+		this.userStatusCode = userStatusCode;
+	}
 
 }
