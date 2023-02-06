@@ -25,7 +25,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/register/user")
+@RequestMapping("/auth/register/user")
 public class RegistrationController {
 	
 	@Autowired
@@ -58,6 +58,7 @@ public class RegistrationController {
 	 * @see UserRoleEnum
 	 * 
 	 * @author Ashish Sam T George
+	 * 
 	 */
 	@PostMapping
 	public String registerUser(@RequestBody UserRegistrationModel userRegistrationModel,

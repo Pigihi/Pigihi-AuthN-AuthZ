@@ -27,7 +27,7 @@ import com.pigihi.service.interfaces.UserLoginServiceInterface;
  */
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/login/user")
+@RequestMapping("/auth/login/user")
 public class LoginController {
 	
 	@Autowired

@@ -32,7 +32,7 @@ public class WebSecurityConfig {
 	private JWTFilter jwtFilter;
 	
 	private static final String[] WHITE_LIST_URLS = {
-			"", ""
+			"/auth/login/user", "/auth/register/user"
 	};
 	
 	@Bean
