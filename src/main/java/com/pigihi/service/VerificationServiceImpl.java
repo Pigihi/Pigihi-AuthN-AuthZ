@@ -78,9 +78,11 @@ public class VerificationServiceImpl implements VerificationServiceInterface {
 			verificationTokenRepository.delete(verificationTokenEntity);
 			return null;
 		}
-		StatusEnum userStatusEnum = user.getStatus();
+//		StatusEnum userStatusEnum = user.getStatus();
+		StatusEnum userStatusEnum = user.getEnableStatus();
 		if(userStatusEnum == StatusEnum.DISABLED || userStatusEnum == StatusEnum.USER_DISABLED) {
-			user.setStatus(userStatusEnum.ENABLED);
+//			user.setStatus(userStatusEnum.ENABLED);
+			user.setEnableStatus(userStatusEnum);
 			userAuthRepository.save(user);
 			verificationTokenRepository.delete(verificationTokenEntity);
 			return user;

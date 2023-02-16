@@ -86,7 +86,8 @@ public class JWTFilter extends OncePerRequestFilter {
 	
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
 		Collection<String> excludeUrlPatterns = new ArrayList<>();
-		excludeUrlPatterns.add("");
+		excludeUrlPatterns.add("/auth/login/user");
+		excludeUrlPatterns.add("/auth/register/user");
 		
 		AntPathMatcher pathMatcher = new AntPathMatcher();
 		return excludeUrlPatterns.stream().anyMatch(p -> pathMatcher.match(p, request.getServletPath()));

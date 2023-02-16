@@ -4,13 +4,13 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://service-registry:8761/eureka
   instance:
     hostname: localhost
 
 # Server properties
 server:
-  port: 8099
+  port: 8080
 
 # Application properties
 spring:
@@ -20,5 +20,6 @@ spring:
   data:
     mongodb:
       database: testWorkingDB
-      host: localhost
+# The name of the mongodb docker service is set as the host
+      host: auth-db
       port: 27017
