@@ -51,3 +51,12 @@ dependencyManagement {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// Extra added configuration
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
