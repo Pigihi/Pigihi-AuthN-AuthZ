@@ -6,19 +6,28 @@ services:
     image: 'mongo'
     restart: always
     volumes:
-      - ./mongo-volume:/data/db
+      - mongo-volume:/data/db
+      #- ./mongo-volume:/data/db
     ports:
       - 27018:27017
 
-  authentication-autherization-service:
-    container_name: authn-authz-service-v0,1
-    image: authn-authz-service-test
+  authentication-authorization-service:
+    container_name: authn-authz-service-v0.1
+    image: authn-authz-service-v0.1-image
     build: .
-    command: bash -c "java -jar /build/libs/Pigihi-AuthN-AuthZ-0.0.1-SNAPSHOT.jar"
+    #command: bash -c "java -jar /build/libs/Pigihi-AuthN-AuthZ-0.0.1-SNAPSHOT.jar"
     volumes:
       - .:/app
     ports:
-      - 8081:8080
+      - 8099:8080
     restart: always
     depends_on:
       - auth-db
+
+volumes:
+  mongo-volume:
+
+networks:
+  default:
+    external:
+      name: pigihi-network

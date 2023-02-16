@@ -37,7 +37,13 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException{
 		String email = authentication.getName();
 		String rawPassword = authentication.getCredentials().toString();
+		
+		System.out.println("Email Received: " + email);
+		
 		UserAuthEntity user = userService.findByEmail(email);
+		
+		System.out.println("Obtained User: " + user);
+		
 		String password = user.getPassword();
 		if(user != null) {
 			if(passwordEncoder.matches(rawPassword, password)) {

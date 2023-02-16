@@ -24,7 +24,7 @@ import lombok.Data;
  *
  */
 
-@Document(collection = "auth_collection")
+@Document(collection = "authentication_collection")
 @Data
 public class UserAuthEntity {
 	
@@ -35,7 +35,8 @@ public class UserAuthEntity {
 	private String mobile;
 	private String password;
 	private UserRoleEnum role;
-	private StatusEnum status = StatusEnum.DISABLED;
+//	private StatusEnum status = StatusEnum.DISABLED;
+	private StatusEnum enableStatus = StatusEnum.DISABLED;
 	
 	//TODO Granted Authorities
 	public Collection<? extends GrantedAuthority> getAuthorities(List<UserRoleEnum> role){

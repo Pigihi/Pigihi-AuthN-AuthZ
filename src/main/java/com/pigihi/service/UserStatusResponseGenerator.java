@@ -24,14 +24,16 @@ public class UserStatusResponseGenerator {
 
 	public String generate(UserAuthEntity user) {
 		String token = null;
-		if(user.getStatus() == StatusEnum.ENABLED) {
+//		if(user.getStatus() == StatusEnum.ENABLED) {
+		if(user.getEnableStatus() == StatusEnum.ENABLED) {
 			token = jwtUtility.generateToken(user);
 		}
-		int statusCode = user.getStatus().userStatusCode;
+//		int statusCode = user.getStatus().userStatusCode;
+		int statusCode = user.getEnableStatus().userStatusCode;
 		JsonObject jsonResponse = new JsonObject();
 		jsonResponse.addProperty("statusCode", statusCode);
 		jsonResponse.addProperty("token", token);
-		return jsonResponse.getAsString();
+		return jsonResponse.toString();
 	}
 
 }
