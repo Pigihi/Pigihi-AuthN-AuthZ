@@ -14,14 +14,18 @@ package com.pigihi.model;
  */
 public enum UserRoleEnum {
 	
-	CUSTOMER(222),
-	SHOP(555),
-	CUSTOMER_AND_SHOP(777);
+//	CUSTOMER(222),
+//	SHOP(555),
+//	CUSTOMER_AND_SHOP(777);
 	
-	public final int roleCode;
+	CUSTOMER,
+	SHOP,
+	CUSTOMER_AND_SHOP;
 	
-	UserRoleEnum(int roleCode) {
-		this.roleCode = roleCode;
-	}
+//	public final int roleCode;
+//	
+//	UserRoleEnum(int roleCode) {
+//		this.roleCode = roleCode;
+//	}
 
 }

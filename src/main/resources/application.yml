@@ -21,5 +21,8 @@ spring:
     mongodb:
       database: testWorkingDB
 # The name of the mongodb docker service is set as the host
-      host: auth-db
+#      host: auth-db
+      host: localhost
       port: 27017
+  config:
+    import: settings.yml
