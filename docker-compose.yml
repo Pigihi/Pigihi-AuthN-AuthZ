@@ -19,7 +19,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - 8099:8080
+      - 8099:8099
     restart: always
     depends_on:
       - auth-db

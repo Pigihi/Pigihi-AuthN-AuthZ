@@ -5,6 +5,7 @@ package com.pigihi.event.listener;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 import com.pigihi.entity.UserAuthEntity;
@@ -22,6 +23,7 @@ import com.pigihi.utility.MessageContentGenerator;
  * @author Ashish Sam T George
  *
  */
+@Component
 public class RegistrationCompleteEventListener implements ApplicationListener<RegistrationCompleteEvent> {
 
 	@Autowired

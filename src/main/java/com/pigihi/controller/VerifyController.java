@@ -25,7 +25,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/register/verify")
+@RequestMapping("/ashish/soman")
 public class VerifyController {
 	
 	@Autowired
@@ -43,18 +43,19 @@ public class VerifyController {
 	 * 
 	 */
 	//TODO Email verification
-	@GetMapping("email")
+//	@GetMapping("/email")
+	@GetMapping
 	public String verifyEmail(@RequestParam("emailToken") String emailToken,
-			HttpServletResponse response) throws IOException {
+			HttpServletResponse response) throws IOException, InterruptedException {
 		
 		UserAuthEntity user = verificationService.verifyEmail(emailToken);
 		if(user != null) {
 			user = verificationService.saveToUserCollection(user);
-			response.sendRedirect("");
+//			response.sendRedirect("");
 			return "Success"; //TODO Check whether axios can get the string even in a redirection response
 		}
 		else {
-			response.sendRedirect("");
+//			response.sendRedirect("");
 			return "Failure"; //TODO Check whether axios can get the string even in a redirection response
 		}
 		
@@ -72,7 +73,7 @@ public class VerifyController {
 	 * 
 	 */
 	//TODO Mobile verification
-	@GetMapping("mobile")
+//	@GetMapping("mobile")
 	public String verifyMobile(@RequestParam("mobileToken") String mobileToken) {
 		//TODO Write logic for verifying mobile (similar to that of email)
 		return null;

@@ -3,11 +3,18 @@
  */
 package com.pigihi.service;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpRequest.BodyPublishers;
 import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
 import com.pigihi.entity.UserAuthEntity;
 import com.pigihi.entity.VerificationTokenEntity;
 import com.pigihi.model.StatusEnum;
@@ -82,7 +89,8 @@ public class VerificationServiceImpl implements VerificationServiceInterface {
 		StatusEnum userStatusEnum = user.getEnableStatus();
 		if(userStatusEnum == StatusEnum.DISABLED || userStatusEnum == StatusEnum.USER_DISABLED) {
 //			user.setStatus(userStatusEnum.ENABLED);
-			user.setEnableStatus(userStatusEnum);
+			user.setEnableStatus(StatusEnum.ENABLED);
+			System.out.println("Reached Here !!!! Verification");
 			userAuthRepository.save(user);
 			verificationTokenRepository.delete(verificationTokenEntity);
 			return user;
@@ -93,10 +101,31 @@ public class VerificationServiceImpl implements VerificationServiceInterface {
 	}
 
 	@Override
-	public UserAuthEntity saveToUserCollection(UserAuthEntity user) {
+	public UserAuthEntity saveToUserCollection(UserAuthEntity user) throws InterruptedException, IOException {
+		
+		Gson gson = new Gson();
 		
 		if(user.getRole() == UserRoleEnum.CUSTOMER) {
 			//TODO Make call to customer microservice to store the details of user
+			
+			HttpClient httpClient = HttpClient.newHttpClient();
+			URI uri = URI.create("http://localhost:8091/user/customer");
+			String userJsonString = gson.toJson(user);
+			System.out.println("UserAuthEntity String: " + 
+//								user.toString());
+								userJsonString);
+			HttpRequest userRequest = HttpRequest.newBuilder()
+										.setHeader("Content-Type", "application/json")
+										.uri(uri)
+										.POST(BodyPublishers.ofString(
+//												user.toString()))
+												userJsonString))
+										.build();
+			HttpResponse<String> response = httpClient.send(userRequest, 
+											HttpResponse.BodyHandlers.ofString());
+			
+			System.out.println("Response from Customer Service: " + response.body());
+
 			/*
 			  	if(customer == null) {
 				CustomerEntity customerEntity = new CustomerEntity();
