@@ -25,7 +25,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/ashish/soman")
+@RequestMapping("/auth/verify/user")
 public class VerifyController {
 	
 	@Autowired
@@ -43,8 +43,8 @@ public class VerifyController {
 	 * 
 	 */
 	//TODO Email verification
-//	@GetMapping("/email")
-	@GetMapping
+	@GetMapping("/email")
+//	@GetMapping
 	public String verifyEmail(@RequestParam("emailToken") String emailToken,
 			HttpServletResponse response) throws IOException, InterruptedException {
 		

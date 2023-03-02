@@ -1,6 +1,15 @@
 eureka_hostname: service-registry
 mongodb_hostname: auth-db
 
+# Production environment
+#mongodb_database_name: authDB
+
+# Development environment
+mongodb_database_name: devAuthDB
+
+# Test environment
+#mongodb_database_name: testAuthDB
+
 # Eureka properties
 eureka:
   client:
@@ -22,7 +31,7 @@ spring:
 # MongoDB properties
   data:
     mongodb:
-      database: authDB
+      database: ${mongodb_database_name}
       host: ${mongodb_hostname}
       port: 27017
   config:

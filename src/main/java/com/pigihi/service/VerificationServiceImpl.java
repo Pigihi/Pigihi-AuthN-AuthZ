@@ -104,13 +104,16 @@ public class VerificationServiceImpl implements VerificationServiceInterface {
 	public UserAuthEntity saveToUserCollection(UserAuthEntity user) throws InterruptedException, IOException {
 		
 		Gson gson = new Gson();
+		String userJsonString = gson.toJson(user);
 		
 		if(user.getRole() == UserRoleEnum.CUSTOMER) {
 			//TODO Make call to customer microservice to store the details of user
 			
 			HttpClient httpClient = HttpClient.newHttpClient();
-			URI uri = URI.create("http://localhost:8091/user/customer");
-			String userJsonString = gson.toJson(user);
+			//TODO Call customer microservice through service-registry
+			URI uri = URI.create("http://customer-service:8091/user/customer");
+			// Service name of docker is specified here (customer-service)
+			
 			System.out.println("UserAuthEntity String: " + 
 //								user.toString());
 								userJsonString);
@@ -144,6 +147,19 @@ public class VerificationServiceImpl implements VerificationServiceInterface {
 		}
 		else if(user.getRole() == UserRoleEnum.SHOP) {
 			//TODO Make call to shop microservice to store the details of the user
+			
+			HttpClient shopClient = HttpClient.newHttpClient();
+			URI uri = URI.create("http://shop-service:8095/user/shop");
+			System.out.println("Shop UserAuthEntity: " + userJsonString);
+			HttpRequest shopRequest = HttpRequest.newBuilder()
+										.setHeader("Content-Type", "application/json")
+										.uri(uri)
+										.POST(BodyPublishers.ofString(userJsonString))
+										.build();
+			HttpResponse<String> shopResponse = shopClient.send(shopRequest, 
+												HttpResponse.BodyHandlers.ofString());
+			System.out.println("Response from shop service: " + shopResponse.body());
+			
 			/*
 			 	ShopEntity shop = shopRepository.findByEmail(user.getEmail());
 			if(shop == null) {
