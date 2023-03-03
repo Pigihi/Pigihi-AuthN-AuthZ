@@ -1,16 +1,31 @@
+eureka_hostname: service-registry
+
+service_hostname: authentication-authorization-service
+
+mongodb_hostname: auth-db
+
+# Production environment
+#mongodb_database_name: authDB
+
+# Development environment
+mongodb_database_name: devAuthDB
+
+# Test environment
+#mongodb_database_name: testAuthDB
+
 # Eureka properties
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://service-registry:8761/eureka
+      defaultZone: http://${eureka_hostname}:8761/eureka
   instance:
-    hostname: localhost
+    hostname: ${service_hostname}
 
 # Server properties
 server:
-  port: 8080
+  port: 8099
 
 # Application properties
 spring:
@@ -19,7 +34,8 @@ spring:
 # MongoDB properties
   data:
     mongodb:
-      database: testWorkingDB
-# The name of the mongodb docker service is set as the host
-      host: auth-db
+      database: ${mongodb_database_name}
+      host: ${mongodb_hostname}
       port: 27017
+  config:
+    import: optional:settings.yml

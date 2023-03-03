@@ -3,6 +3,8 @@
  */
 package com.pigihi.service;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
 import com.pigihi.service.interfaces.GenerateTokenServiceInterface;
@@ -25,8 +27,8 @@ public class GenerateTokenServiceImpl implements GenerateTokenServiceInterface {
 	 */
 	@Override
 	public String getEmailToken() {
-		// TODO Auto-generated method stub
-		return null;
+		String token = UUID.randomUUID().toString();
+		return token;
 	}
 
 	/**

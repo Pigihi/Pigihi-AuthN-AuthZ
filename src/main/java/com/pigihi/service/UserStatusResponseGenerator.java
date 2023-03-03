@@ -29,7 +29,7 @@ public class UserStatusResponseGenerator {
 			token = jwtUtility.generateToken(user);
 		}
 //		int statusCode = user.getStatus().userStatusCode;
-		int statusCode = user.getEnableStatus().userStatusCode;
+		String statusCode = user.getEnableStatus().toString();
 		JsonObject jsonResponse = new JsonObject();
 		jsonResponse.addProperty("statusCode", statusCode);
 		jsonResponse.addProperty("token", token);

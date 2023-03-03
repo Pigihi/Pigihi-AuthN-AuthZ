@@ -3,6 +3,8 @@
  */
 package com.pigihi.model;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,5 +30,7 @@ public class UserRegistrationModel {
 	private String password;
 	
 	private UserRoleEnum role;
+	
+	private List<PrivilegeEnum> privileges;
 
 }

@@ -40,16 +40,17 @@ public class UserRoleServiceImpl implements UserRoleServiceInterface {
 	 * 
 	 */
 	@Override
-	public int findRoleCode(String email, String mobile) {
+	public UserRoleEnum findRoleCode(String email, String mobile) {
 
 		//TODO If one user has this email and another user has this mobile, which user to return
 		UserAuthEntity user = userRegistrationService.findExistingUser(email, mobile);
 		if(user != null) {
-			return user.getRole().roleCode;
+//			return user.getRole().roleCode;
+			return user.getRole();
 		}
 		else {
 			// 000 indicates that there is no user with that email or mobile
-			return 000;
+			return null;
 		}
 	}
 
