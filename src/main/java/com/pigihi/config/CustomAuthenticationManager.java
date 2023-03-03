@@ -49,7 +49,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 			if(passwordEncoder.matches(rawPassword, password)) {
 				return new UsernamePasswordAuthenticationToken(user, 
 						null,
-						user.getAuthorities(List.of(user.getRole())));
+						user.getAuthorities(List.of(user.getRole()), user.getPrivileges()));
 			}
 		}
 		else {

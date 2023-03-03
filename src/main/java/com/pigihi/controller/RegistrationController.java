@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 import com.pigihi.entity.UserAuthEntity;
 import com.pigihi.model.UserRegistrationModel;
+import com.pigihi.model.UserRoleEnum;
 import com.pigihi.service.interfaces.PublishVerificationTokenServiceInterface;
 import com.pigihi.service.interfaces.UserRegistrationServiceInterface;
 import com.pigihi.service.interfaces.UserRoleServiceInterface;
@@ -68,9 +69,11 @@ public class RegistrationController {
 		
 		String email = userRegistrationModel.getEmail();
 		String mobile = userRegistrationModel.getMobile();
-		int roleCode = userRoleService.findRoleCode(email, mobile);
+//		int roleCode = userRoleService.findRoleCode(email, mobile);
+		UserRoleEnum roleCode = userRoleService.findRoleCode(email, mobile);
 		Gson gson = new Gson();
-		if(roleCode == 000) {
+//		if(roleCode == 000) {
+		if(roleCode == null) {
 			UserAuthEntity user = userRegistrationService.registerUser(userRegistrationModel);
 			Boolean state = publishVerificationTokenService.publish(user, request);
 						
@@ -80,7 +83,8 @@ public class RegistrationController {
 		}
 		else {
 			//TODO How about using an HTTP response code other than 200
-			int status = roleCode;
+//			int status = roleCode;
+			UserRoleEnum status = roleCode;
 			return gson.toJson(status);
 		}
 		

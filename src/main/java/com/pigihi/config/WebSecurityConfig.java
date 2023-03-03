@@ -20,7 +20,7 @@ import com.pigihi.filter.JWTFilter;
  * @author Ashish Sam T George
  *
  */
-//@EnableWebSecurity
+@EnableWebSecurity
 @Configuration
 // It is working when '@Configuration' is used and not when using '@EnableWebSecurity'
 public class WebSecurityConfig {
@@ -32,7 +32,11 @@ public class WebSecurityConfig {
 	private JWTFilter jwtFilter;
 	
 	private static final String[] WHITE_LIST_URLS = {
-			"/auth/login/user", "/auth/register/user"
+			"/auth/login/user", 
+			"/auth/register/user", 
+			"/auth/verify/user/**",
+//			Should this be accessible outside microservices
+			"/auth/authorize/user"
 	};
 	
 	@Bean

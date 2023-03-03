@@ -63,6 +63,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationServiceInter
 		user.setMobile(userRegistrationModel.getMobile());
 		user.setPassword(passwordEncoder.encode(userRegistrationModel.getPassword()));
 		user.setRole(userRegistrationModel.getRole());
+		user.setPrivileges(userRegistrationModel.getPrivileges());
 		
 		userAuthRepository.save(user);
 		return user;

@@ -64,7 +64,7 @@ public class JWTUtility implements Serializable {
 //			claimsMap.put("id", customer.getId());
 		}
 		
-		claimsMap.put("authorities", user.getAuthorities(List.of(user.getRole())));
+		claimsMap.put("authorities", user.getAuthorities(List.of(user.getRole()), user.getPrivileges()));
 		Claims claims = Jwts.claims(claimsMap);
 		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
 				.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))

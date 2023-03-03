@@ -3,6 +3,8 @@
  */
 package com.pigihi.service.interfaces;
 
+import java.io.IOException;
+
 import com.pigihi.entity.UserAuthEntity;
 import com.pigihi.entity.VerificationTokenEntity;
 
@@ -16,6 +18,6 @@ public interface VerificationServiceInterface {
 
 	UserAuthEntity verifyEmail(String emailToken);
 
-	UserAuthEntity saveToUserCollection(UserAuthEntity user);
+	UserAuthEntity saveToUserCollection(UserAuthEntity user) throws InterruptedException, IOException;
 
 }
