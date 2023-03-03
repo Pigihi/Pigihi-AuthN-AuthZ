@@ -34,7 +34,9 @@ public class WebSecurityConfig {
 	private static final String[] WHITE_LIST_URLS = {
 			"/auth/login/user", 
 			"/auth/register/user", 
-			"/auth/verify/user/**"
+			"/auth/verify/user/**",
+//			Should this be accessible outside microservices
+			"/auth/authorize/user"
 	};
 	
 	@Bean

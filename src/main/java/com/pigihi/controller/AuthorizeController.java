@@ -3,6 +3,10 @@
  */
 package com.pigihi.controller;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,15 +33,20 @@ public class AuthorizeController {
 	private JWTUtility jwtUtility;
 	
 	@GetMapping
-	public String getRolesFromJwt(@RequestParam String jwt) {
+	public List<String> getRolesFromJwt(@RequestParam String jwt) {
 		
+		List<String> authorities = new ArrayList<String>();
 		// Perform real validation of JWT
 		if(jwtUtility.validateToken(jwt)) {
 			Claims body = jwtUtility.getBody(jwt);
-			 body.get("authorities");
+			List<LinkedHashMap<String, String>> authorityMapList = (List<LinkedHashMap<String,String>>) body.get("authorities");
+			for (LinkedHashMap<String, String> authorityMap : authorityMapList) {
+				authorities.add(authorityMap.get("authority"));
+			}
+			System.out.println("Authorities from JWT: " + authorities); 
 		}
 		
-		return "Implementation not complete";
+		return authorities;
 	}
 
 }
