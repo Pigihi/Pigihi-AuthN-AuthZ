@@ -64,6 +64,20 @@ public class UserController {
 		return jsonUser;
 	}
 	
+	@DeleteMapping("/byAdmin")
+	public String disableUserByAdmin(@RequestParam String email) {
+		UserAuthEntity user = userService.disableUserByAdmin(email);
+		String jsonUser = convertToJson(user);
+		return jsonUser;
+	}
+	
+	@PatchMapping("/byAdmin")
+	public String enableUserByAdmin(@RequestParam String email) {
+		UserAuthEntity user = userService.enableUserByAdmin(email);
+		String jsonUser = convertToJson(user);
+		return jsonUser;
+	}
+	
 	private String convertToJson(UserAuthEntity userEntity) {
 		Gson gson = new Gson();
 		String jsonString = gson.toJson(userEntity);

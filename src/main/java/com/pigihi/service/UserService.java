@@ -68,4 +68,18 @@ public class UserService {
 		return enabledUser;
 	}
 
+	public UserAuthEntity disableUserByAdmin(String email) {
+		UserAuthEntity user = userAuthRepository.findByEmail(email);
+		user.setEnableStatus(StatusEnum.ADMIN_DISABLED);
+		UserAuthEntity disabledUser = userAuthRepository.save(user);
+		return disabledUser;
+	}
+
+	public UserAuthEntity enableUserByAdmin(String email) {
+		UserAuthEntity user = userAuthRepository.findByEmail(email);
+		user.setEnableStatus(StatusEnum.ENABLED);
+		UserAuthEntity enabledUser = userAuthRepository.save(user);
+		return enabledUser;
+	}
+
 }
