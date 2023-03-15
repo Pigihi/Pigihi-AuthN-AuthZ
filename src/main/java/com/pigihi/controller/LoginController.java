@@ -50,4 +50,5 @@ public class LoginController {
 		String response = userStatusResponseGenerator.generate(user);
 		return response;
 	}
+	
 }
