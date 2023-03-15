@@ -1,0 +1,18 @@
+# Development environment
+
+eureka_hostname: service-registry
+
+service_hostname: authentication-authorization-service
+
+mongodb_hostname: auth-db
+mongodb_database_name: devAuthDB
+
+# Eureka properties
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka_hostname}:8761/eureka
+  instance:
+    hostname: ${service_hostname}

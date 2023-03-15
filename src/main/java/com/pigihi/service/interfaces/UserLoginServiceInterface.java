@@ -15,5 +15,5 @@ import com.pigihi.model.UserLoginModel;
 public interface UserLoginServiceInterface {
 
 	Authentication login(UserLoginModel userLoginModel) throws Exception;
-
+	
 }
