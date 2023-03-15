@@ -82,4 +82,11 @@ public class UserService {
 		return enabledUser;
 	}
 
+	public UserAuthEntity changeFullName(String email, String fullName) {
+		UserAuthEntity user = userAuthRepository.findByEmail(email);
+		user.setFullName(fullName);
+		UserAuthEntity changedUser = userAuthRepository.save(user);
+		return changedUser;
+	}
+
 }
